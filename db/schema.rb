@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_145158) do
+ActiveRecord::Schema.define(version: 2020_03_31_165732) do
 
   create_table "memes", force: :cascade do |t|
     t.bigint "stack_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_145158) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "picture_url"
   end
 
 end
