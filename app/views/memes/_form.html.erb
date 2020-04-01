@@ -1,0 +1,14 @@
+<%= form_for meme do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :picture_url %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

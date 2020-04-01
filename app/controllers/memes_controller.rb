@@ -1,5 +1,5 @@
 class MemesController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_meme, only: [:show, :edit, :update]
 
   def index
     @memes = Meme.order('created_at DESC')
@@ -25,8 +25,8 @@ class MemesController < ApplicationController
   end
 
   def update
-    if @meme.update_attributes(post_params)
-      redirect_to post_path(@meme)
+    if @meme.update_attributes(meme_params)
+      redirect_to meme_path(@meme)
     else
       render :edit
     end
@@ -35,10 +35,10 @@ class MemesController < ApplicationController
   private
 
   def meme_params
-    params.require(:meme).permit(:stack_id, :mark, :title)
+    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url)
   end
 
-  def set_post
-    @post = Post.find(params[:id])
+  def set_meme
+    @meme = Meme.find(params[:id])
   end
 end
