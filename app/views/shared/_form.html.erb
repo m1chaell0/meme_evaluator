@@ -1,0 +1,16 @@
+<%= f.label :pucture_url %>
+<%= f.file_field :pucture_url %><br>
+<%= f.hidden_field :pucture_url_cache %>
+<% if meme.picture_url? %>
+  <%= image_tag meme.picture_url.url %>
+<% end %>
+
+<% if post.image? %>
+  <%= image_tag meme.picture_url.url %>
+  <div>
+    <%= label_tag :remove_picture_url do %>
+      Remove image
+      <%= f.check_box :remove_picture_url %>
+    <% end %>
+  </div>
+<% end %>

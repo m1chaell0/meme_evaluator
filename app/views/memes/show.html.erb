@@ -1,8 +1,8 @@
 <%= link_to 'All memes', memes_path %>
 <h1><%= @meme.title %></h1>
 
-<%= image_tag(@meme.picture_url.url, alt: 'Memas') if @meme.picture_url? %>
-
-<p><%= @meme.picture_url %></p>
+<%= image_tag(@meme.picture_url.url, alt: 'Image') if @meme.picture_url %>
 
 <p><%= link_to 'Edit', edit_meme_path(@meme) %></p>
+
+<%= link_to(image_tag(@meme.picture_url.thumb.url, alt: 'Memas'), @meme.picture_url.url, target: '_blank') if @meme.picture_url? %>

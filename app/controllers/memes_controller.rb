@@ -35,7 +35,7 @@ class MemesController < ApplicationController
   private
 
   def meme_params
-    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url)
+    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url, :picture_url_cache, :remove_picture_url)
   end
 
   def set_meme
