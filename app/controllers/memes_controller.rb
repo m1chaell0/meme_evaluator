@@ -39,6 +39,8 @@ class MemesController < ApplicationController
     redirect_to memes_path
   end
 
+
+
   private
 
   def meme_params

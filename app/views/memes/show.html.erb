@@ -6,3 +6,31 @@
 <p><%= link_to 'Edit', edit_meme_path(@meme) %></p>
 
 <%= link_to(image_tag(@meme.picture_url.thumb.url, alt: 'Memas'), @meme.picture_url.url, target: '_blank') if @meme.picture_url? %>
+
+<%= form_for @meme do |f| %>
+  <%= f.radio_button(:mark, "1") %>
+  <%= f.label(:mark_1, "1") %>
+  <%= f.radio_button(:mark, "2") %>
+  <%= f.label(:mark_2, "2") %>
+  <%= f.radio_button(:mark, "3") %>
+  <%= f.label(:mark_3, "3") %>
+  <%= f.radio_button(:mark, "4") %>
+  <%= f.label(:mark_4, "4") %>
+  <%= f.radio_button(:mark, "5") %>
+  <%= f.label(:mark_5, "5") %>
+  <%= f.radio_button(:mark, "6") %>
+  <%= f.label(:mark_6, "6") %>
+  <%= f.radio_button(:mark, "7") %>
+  <%= f.label(:mark_7, "7") %>
+  <%= f.radio_button(:mark, "8") %>
+  <%= f.label(:mark_8, "8") %>
+  <%= f.radio_button(:mark, "9") %>
+  <%= f.label(:mark_9, "9") %>
+  <%= f.radio_button(:mark, "10") %>
+  <%= f.label(:mark_10, "10") %>
+  <%= f.submit "Evaluate" %>
+<% end %>
+
+
+
+
