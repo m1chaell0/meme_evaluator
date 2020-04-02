@@ -1,4 +1,24 @@
 <h1>Memes</h1>
 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Thumb</th>
+    <th>Mark</th>
+    <th></th>
+  </tr>
+
+  <% @memes.each do |meme| %>
+    <tr>
+      <td><%= meme.title %></td>
+      <td><%= image_tag meme.picture_url.small_thumb.url %></td>
+      <td><%= meme.mark %></td>
+      <td><%= link_to 'Show', meme_path(meme) %></td>
+      <td><%= link_to 'Delete', meme_path(meme),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
 <%= link_to 'Add meme', new_meme_path %>
 

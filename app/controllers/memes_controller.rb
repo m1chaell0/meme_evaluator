@@ -1,5 +1,5 @@
 class MemesController < ApplicationController
-  before_action :set_meme, only: [:show, :edit, :update]
+  before_action :set_meme, only: [:show, :edit, :update, :destroy]
 
   def index
     @memes = Meme.order('created_at DESC')
@@ -32,10 +32,17 @@ class MemesController < ApplicationController
     end
   end
 
+  def destroy
+    @meme = Meme.find(params[:id])
+    @meme.destroy
+
+    redirect_to memes_path
+  end
+
   private
 
   def meme_params
-    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url, :picture_url_cache, :remove_picture_url)
+    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url, :picture_url_cache, :remove_picture)
   end
 
   def set_meme

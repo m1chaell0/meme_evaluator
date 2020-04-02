@@ -5,12 +5,3 @@
   <%= image_tag meme.picture_url.url %>
 <% end %>
 
-<% if post.image? %>
-  <%= image_tag meme.picture_url.url %>
-  <div>
-    <%= label_tag :remove_picture_url do %>
-      Remove image
-      <%= f.check_box :remove_picture_url %>
-    <% end %>
-  </div>
-<% end %>
