@@ -1,11 +1,15 @@
 <%= link_to 'All memes', memes_path %>
 <h1><%= @meme.title %></h1>
 
-<%= image_tag(@meme.picture_url.url, alt: 'Image') if @meme.picture_url %>
+<% if  @meme.picture_url.present?  %>
+  <%= image_tag @meme.picture_url.url %>
+<% elsif @meme.remote_picture_url_url.present?%>
+  <%= image_tag @meme.remote_picture_url_url.url %>
+<%end %>
 
 <p><%= link_to 'Edit', edit_meme_path(@meme) %></p>
 
-<%= link_to(image_tag(@meme.picture_url.thumb.url, alt: 'Memas'), @meme.picture_url.url, target: '_blank') if @meme.picture_url? %>
+
 
 <%= form_for @meme do |f| %>
   <%= f.radio_button(:mark, "1") %>

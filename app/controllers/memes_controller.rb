@@ -39,12 +39,14 @@ class MemesController < ApplicationController
     redirect_to memes_path
   end
 
-
+  def default_url
+    "/assets/empty.png"
+  end
 
   private
 
   def meme_params
-    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url, :picture_url_cache, :remove_picture)
+    params.require(:meme).permit(:stack_id, :mark, :title, :picture_url, :picture_url_cache, :remote_picture_url_url)
   end
 
   def set_meme

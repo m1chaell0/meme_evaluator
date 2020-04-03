@@ -2,6 +2,8 @@
 <%= f.file_field :pucture_url %><br>
 <%= f.hidden_field :pucture_url_cache %>
 <% if meme.picture_url? %>
-  <%= image_tag meme.picture_url.url %>
+  <%= image_tag meme.picture_url.thumb.url %>
 <% end %>
 
+<%= f.text_field :remote_picture_url_url %>
+<small>Enter URL to an image</small>

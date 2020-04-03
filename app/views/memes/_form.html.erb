@@ -11,20 +11,17 @@
     <%= f.hidden_field :picture_url_cache %>
   </div>
 
+  <div>
+    <%= f.text_field :remote_picture_url_url %>
+    <small>Enter URL to an image</small>
+  </div>
   <% if meme.picture_url? %>
     <%= image_tag meme.picture_url.small_thumb.url %>
   <% end %>
   <%= f.submit %>
 
-  <% if meme.picture_url? %>
-    <%= image_tag meme.picture_url.thumb.url %>
-    <div>
-      <%= label_tag :remove_picture do %>
-        Remove picture
-        <%= f.check_box :remove_picture_url %>
-      <% end %>
-    </div>
-  <% end %>
+
+
 
   <%= render 'shared/errors', object: meme %>
 <% end %>

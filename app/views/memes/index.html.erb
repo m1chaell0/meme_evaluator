@@ -11,7 +11,14 @@
   <% @memes.each do |meme| %>
     <tr>
       <td><%= meme.title %></td>
-      <td><%= image_tag meme.picture_url.small_thumb.url %></td>
+      <td><% if  meme.picture_url.present?  %>
+          <%= image_tag meme.picture_url.small_thumb.url %>
+        <% elsif meme.remote_picture_url_url.present?%>
+            <%= image_tag meme.remote_picture_url.small_thumb.url %>
+          <%else %>
+              <%= image_tag "/public/empty.png", size: "30x30"  %>
+
+        <%end %></td>
       <td><%= meme.mark %></td>
       <td><%= link_to 'Show', meme_path(meme) %></td>
       <td><%= link_to 'Delete', meme_path(meme),
